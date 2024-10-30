@@ -1,4 +1,4 @@
-application_id = 'com.builder.Wastepyper'
+application_id = 'com.github.medeotl.Wastepyper'
 
 scalable_dir = 'hicolor' / 'scalable' / 'apps'
 install_data(

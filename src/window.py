@@ -21,7 +21,7 @@ from gi.repository import Gio
 from gi.repository import Gtk
 from gi.repository import Adw
 
-@Gtk.Template(resource_path='/com/builder/Wastepyper/window.ui')
+@Gtk.Template(resource_path='/com/github/medeotl/Wastepyper/window.ui')
 class WastepyperWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'WastepyperWindow'
 

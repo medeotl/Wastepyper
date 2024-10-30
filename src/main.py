@@ -30,7 +30,7 @@ from .window import WastepyperWindow
 class WastepyperApplication(Adw.Application):
 
     def __init__(self):
-        super().__init__(application_id='com.builder.Wastepyper',
+        super().__init__(application_id='com.github.medeotl.Wastepyper',
                          flags=Gio.ApplicationFlags.DEFAULT_FLAGS)
         self.create_action('about', self.on_about_action)
         self.create_action('quit', lambda *_: self.quit(), ['<primary>q'])
@@ -39,7 +39,7 @@ class WastepyperApplication(Adw.Application):
     def on_about_action(self, *args):
         aboutWindow = Adw.AboutWindow(transient_for=self.props.active_window,
                                       application_name='Wastepyper',
-                                      application_icon='com.builder.Wastepyper',
+                                      application_icon='com.github.medeotl.Wastepyper',
                                       developer_name='medeo',
                                       version='0.1.0',
                                       developers=['medeo'],

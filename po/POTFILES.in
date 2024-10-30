@@ -1,8 +1,8 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
-data/com.builder.Wastepyper.desktop.in
-data/com.builder.Wastepyper.metainfo.xml.in
-data/com.builder.Wastepyper.gschema.xml
+data/com.github.medeotl.Wastepyper.desktop.in
+data/com.github.medeotl.Wastepyper.metainfo.xml.in
+data/com.github.medeotl.Wastepyper.gschema.xml
 src/main.py
 src/window.py
 src/window.ui
