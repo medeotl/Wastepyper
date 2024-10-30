@@ -27,6 +27,7 @@ from .window import WastepyperWindow
 
 
 class WastepyperApplication(Adw.Application):
+    __gtype_name__ = 'WastepyperApplication'
 
     def __init__(self):
         super().__init__(application_id='com.github.medeotl.Wastepyper',
