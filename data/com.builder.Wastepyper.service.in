@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=com.builder.Wastepyper
+Exec=@bindir@/wastepyper --gapplication-service
