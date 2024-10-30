@@ -5,7 +5,7 @@
   <template class="WastepyperWindow" parent="AdwApplicationWindow">
     <property name="width-request">280</property>
     <property name="height-request">320</property>
-    <property name="default-height">500</property>
+    <property name="default-height">400</property>
     <property name="default-width">400</property>
     
     <property name="content">
