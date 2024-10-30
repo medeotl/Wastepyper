@@ -48,10 +48,8 @@ class WastepyperApplication(Adw.Application):
         aboutWindow.present()
         
     def do_activate(self):
-        active_window = self.props.active_window
-        if not active_window:
-            active_window = WastepyperWindow(application=self)
-        active_window.present()
+        window = WastepyperWindow(application=self)
+        window.present()
 
     # disabilitato per ora
     # def on_preferences_action(self, widget, _):
