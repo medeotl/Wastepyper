@@ -34,6 +34,7 @@ class WastepyperApplication(Adw.Application):
                          flags=Gio.ApplicationFlags.DEFAULT_FLAGS)
         self.create_action('about', self.on_about_action)
         self.create_action('quit', lambda *_: self.quit(), ['<primary>q'])
+        self.create_action('activate', self.do_activate, ['<primary>n'])
         # self.create_action('preferences', self.on_preferences_action)
 
     def on_about_action(self, *args):
@@ -48,7 +49,7 @@ class WastepyperApplication(Adw.Application):
         aboutWindow.set_translator_credits(_('translator-credits'))
         aboutWindow.present()
         
-    def do_activate(self):
+    def do_activate(self, *args):
         window = WastepyperWindow(application=self)
         window.present()
 
