@@ -15,7 +15,7 @@
           <object class="AdwNavigationPage">
             <property name="title" translatable="yes">New List</property>
             <property name="child">
-            <object class="AdwToolbarView">
+              <object class="AdwToolbarView">
                 <child type="top">
                   <object class="AdwHeaderBar" id="header_bar">
                     <property name="show-title">False</property>
@@ -96,18 +96,29 @@
 
                   <object class="GtkWindowHandle">
                     <child>
+                      <object class="AdwPreferencesPage">
 
-                      <object class="GtkLabel" id="label">
-                        <property name="label">Hello, World!</property>
-                        <style>
-                          <class name="title-1"/>
-                        </style>
+                        <child>
+                          <object class="AdwPreferencesGroup">
+
+                            <child>
+                              <object class="GtkListBox" id="listbox">
+                                <property name="selection-mode">none</property>
+                                <style>
+                                  <class name="boxed-list" />
+                                </style>
+                              </object>
+                            </child>
+
+                          </object>
+                        </child>
+
                       </object>
-
                     </child>
-                  </object>
 
+                  </object>
                 </property>
+
               </object>
             </property>
           </object>

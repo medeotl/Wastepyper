@@ -25,7 +25,7 @@ from gi.repository import Adw
 class WastepyperWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'WastepyperWindow'
 
-    _label = Gtk.Template.Child(name="label")
+    _listBox = Gtk.Template.Child(name="listbox")
     _listNameRow = Gtk.Template.Child(name="listNameRow")
     _listPage = Gtk.Template.Child(name="listPage")
     _navigationView = Gtk.Template.Child(name="navigationView")
