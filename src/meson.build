@@ -29,8 +29,9 @@ configure_file(
 wastepyper_sources = [
   '__init__.py',
   'main.py',
-  'window.py',
   'model.py',
+  'task.py',
+  'window.py',
 ]
 
 install_data(wastepyper_sources, install_dir: moduledir)
