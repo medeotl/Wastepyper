@@ -27,13 +27,14 @@ from .model import WastepyperSentinel, WastepyperSentinelListModel
 class WastepyperWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'WastepyperWindow'
 
-    _listBox = Gtk.Template.Child(name="listbox")
+    _listbox = Gtk.Template.Child(name="listbox")
     _listNameRow = Gtk.Template.Child(name="listNameRow")
     _listPage = Gtk.Template.Child(name="listPage")
     _navigationView = Gtk.Template.Child(name="navigationView")
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        # action per creare una nuova lista (attivata dal pulsante apposito)
         self._createListAction = Gio.SimpleAction.new(name="create-list")
         self._createListAction.connect("activate", self._createList)
         self.add_action(self._createListAction)
