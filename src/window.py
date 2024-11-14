@@ -21,6 +21,8 @@ from gi.repository import Gio
 from gi.repository import Gtk
 from gi.repository import Adw
 
+from .model import WastepyperSentinel, WastepyperSentinelListModel
+
 @Gtk.Template(resource_path='/com/github/medeotl/Wastepyper/window.ui')
 class WastepyperWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'WastepyperWindow'
@@ -36,6 +38,9 @@ class WastepyperWindow(Adw.ApplicationWindow):
         self._createListAction.connect("activate", self._createList)
         self.add_action(self._createListAction)
         self._validateListName()
+        
+        self._model = WastepyperSentinelListModel()
+        self._listbox.bind_model(self._model, lambda item: self._createRow(item))
     
     @Gtk.Template.Callback()
     def _validateListName(self, *args):
@@ -52,7 +57,14 @@ class WastepyperWindow(Adw.ApplicationWindow):
         assert text and len(text) > 0, "nome lista vuoto"
         print(f"Creating list '{text}'")
         
-        self.title = _("Wastepyper - %s").format(text)
+        self.props.title = _("Wastepyper - %s").format(text)
         
         self._listPage.props.title = text
         self._navigationView.push(self._listPage)
+        
+    def _createRow(self, item):
+        if isinstance(item, WastepyperSentinel):
+            return Adw.EntryRow()
+        else:
+            return Adw.ActionRow()
+        
