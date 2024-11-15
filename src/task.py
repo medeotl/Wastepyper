@@ -29,3 +29,8 @@ class WastepyperTask(GObject.GObject):
                   '',
                   GObject.ParamFlags.READWRITE),
     }
+    
+    def __init__(self, title=""):
+        super().__init__()
+        self.title = title
+

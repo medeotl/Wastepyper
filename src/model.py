@@ -48,9 +48,10 @@ class WastepyperSentinelListModel(GObject.GObject, Gio.ListModel):
                   GObject.ParamFlags.READWRITE),
     }
 
-    def __init__(self):
+    def __init__(self, model=None):
         super().__init__()
 
+        self._model = model
         self._has_sentinel = True
         self._sentinel = WastepyperSentinel()
 

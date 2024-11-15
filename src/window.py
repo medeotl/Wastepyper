@@ -22,6 +22,7 @@ from gi.repository import Gtk
 from gi.repository import Adw
 
 from .model import WastepyperSentinel, WastepyperSentinelListModel
+from .task import WastepyperTask
 
 @Gtk.Template(resource_path='/com/github/medeotl/Wastepyper/window.ui')
 class WastepyperWindow(Adw.ApplicationWindow):
@@ -40,7 +41,10 @@ class WastepyperWindow(Adw.ApplicationWindow):
         self.add_action(self._createListAction)
         self._validateListName()
         
-        self._model = WastepyperSentinelListModel()
+        self._tasksModel = Gio.ListStore(item_type=WastepyperTask)
+        for foo in ['Task 1', 'Task 2', 'Task 3']:
+            self._tasksModel.append(WastepyperTask(title=foo))
+        self._model = WastepyperSentinelListModel(model=self._tasksModel)
         self._listbox.bind_model(self._model, lambda item: self._createRow(item))
     
     @Gtk.Template.Callback()
