@@ -77,11 +77,11 @@
         <child>
           <object class="AdwNavigationPage" id="listPage">
             <property name="title" translatable="no">List</property>
+            <property name="can-pop">False</property>
             <property name="child">
               <object class="AdwToolbarView">
                 <child type="top">
                   <object class="AdwHeaderBar">
-                    <property name="show-back-button">False</property>
                     <child type="end">
                       <object class="GtkMenuButton">
                         <property name="primary">True</property>
