@@ -58,16 +58,16 @@ class WastepyperSentinelListModel(GObject.GObject, Gio.ListModel):
         return GObject.Object.__gtype__
 
     def do_get_n_items(self):
-        nItems = self._model.props.nItems if hasattr(self, "_model") else 0
-        return nItems + 1 if hasattr(self, "_has_sentinel") else nItems
+        n_items = self._model.props.n_items if hasattr(self, "_model") else 0
+        return n_items + 1 if hasattr(self, "_has_sentinel") else n_items
 
     def do_get_item(self, index):
-        nItems = self.do_get_n_items()
+        n_items = self.do_get_n_items()
 
-        if (index >= nItems):
+        if (index >= n_items):
             return None
         
-        if index == nItems - 1:
+        if index == n_items - 1:
             return self._sentinel
         else:
             if hasattr(self, "_model"):
