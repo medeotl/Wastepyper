@@ -23,6 +23,7 @@ from gi.repository import Adw
 
 from .model import WastepyperSentinel, WastepyperSentinelListModel
 from .task import WastepyperTask
+from .taskRow import WastepyperTaskRow
 
 @Gtk.Template(resource_path='/com/github/medeotl/Wastepyper/window.ui')
 class WastepyperWindow(Adw.ApplicationWindow):
@@ -71,5 +72,5 @@ class WastepyperWindow(Adw.ApplicationWindow):
         if isinstance(item, WastepyperSentinel):
             return Adw.EntryRow()
         else:
-            return Adw.ActionRow()
+            return WastepyperTaskRow(task=item)
         
