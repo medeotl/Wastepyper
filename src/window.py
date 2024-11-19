@@ -45,7 +45,8 @@ class WastepyperWindow(Adw.ApplicationWindow):
 
         self._tasksModel = Gio.ListStore(item_type=WastepyperTask)
         for foo in ['Task 1', 'Task 2', 'Task 3']:
-            self._tasksModel.append(WastepyperTask(title=foo))
+            self._addTask(foo)
+
         self._model = WastepyperSentinelListModel(model=self._tasksModel)
         self._listbox.bind_model(self._model, lambda item: self._createRow(item))
 
@@ -80,4 +81,8 @@ class WastepyperWindow(Adw.ApplicationWindow):
         assert row is not None
 
         return row
+
+    def _addTask(self, title):
+        assert title is not None and len(title) > 0
+        self._tasksModel.append(WastepyperTask(title=title))
 
