@@ -25,11 +25,13 @@
 
 from gi.repository import Gio, GObject
 
+
 class WastepyperSentinel(GObject.GObject):
     __gtype_name__ = 'WastepyperSentinel'
 
     def __init__(self):
         super().__init__()
+
 
 class WastepyperSentinelListModel(GObject.GObject, Gio.ListModel):
     __gtype_name__ = 'WastepyperSentinelListModel'
@@ -65,7 +67,7 @@ class WastepyperSentinelListModel(GObject.GObject, Gio.ListModel):
 
         if (index >= n_items):
             return None
-        
+
         if index == n_items - 1:
             return self._sentinel
         else:
@@ -77,46 +79,46 @@ class WastepyperSentinelListModel(GObject.GObject, Gio.ListModel):
     @property
     def has_sentinel(self):
         return self._has_sentinel
-        
+
     @has_sentinel.setter
     def has_sentinel(self, v):
         if self._has_sentinel == v:
             return
-            
+
         self._has_sentinel = v
-        
+
         if (self._has_sentinel):
             self.items_changed(postition=self.do_get_n_items(), removed=0, added=1)
         else:
             self.items_changed(position=self.do_get_n_items(), removed=1, added=0)
-        
+
         self.notify('has-sentinel')
-            
+
     @property
     def model(self):
         return self._model
-        
+
     @model.setter
     def model(self, v):
         if self._model == v:
             return
-        
+
         nAdded = 0
         nRemoved = 0
-        
+
         if (self._model):
             nRemoved = self._model.get_n_items()
             self._model.disconnect(self._itemsChangedId)
             del self._itemsChangedId
-            
+
         self._model = v
-        
+
         if (self._model):
             nAdded = self._model.get_n_items()
             self._itemsChangeId = self._model.connect('items-changed',
             lambda _, position, removed, added: 
                 self.items_changed(position, removed, added))
-        
+
         self.notify('model')
         self.items_changed(position=0, removed=nRemoved, added=nAdded)
 

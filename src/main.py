@@ -48,7 +48,7 @@ class WastepyperApplication(Adw.Application):
         # Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
         aboutWindow.set_translator_credits(_('translator-credits'))
         aboutWindow.present()
-        
+
     def do_activate(self, *args):
         window = WastepyperWindow(application=self)
         window.present()
@@ -76,3 +76,4 @@ class WastepyperApplication(Adw.Application):
 def main(version):
     application = WastepyperApplication()
     return application.run(sys.argv)
+

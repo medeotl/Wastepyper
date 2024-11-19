@@ -25,6 +25,7 @@ from .model import WastepyperSentinel, WastepyperSentinelListModel
 from .task import WastepyperTask
 from .taskRow import WastepyperTaskRow
 
+
 @Gtk.Template(resource_path='/com/github/medeotl/Wastepyper/window.ui')
 class WastepyperWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'WastepyperWindow'
@@ -41,36 +42,36 @@ class WastepyperWindow(Adw.ApplicationWindow):
         self._createListAction.connect("activate", self._createList)
         self.add_action(self._createListAction)
         self._validateListName()
-        
+
         self._tasksModel = Gio.ListStore(item_type=WastepyperTask)
         for foo in ['Task 1', 'Task 2', 'Task 3']:
             self._tasksModel.append(WastepyperTask(title=foo))
         self._model = WastepyperSentinelListModel(model=self._tasksModel)
         self._listbox.bind_model(self._model, lambda item: self._createRow(item))
-    
+
     @Gtk.Template.Callback()
     def _validateListName(self, *args):
         text = self._listNameRow.props.text.strip()
         self._createListAction.props.enabled = len(text) > 0
-        
+
     @Gtk.Template.Callback()    
     def _activateListNameRow(self, *args):
         self._createListAction.activate()
-        
+
     def _createList(self, *args):
         text = self._listNameRow.props.text.strip()
-        
+
         assert text and len(text) > 0, "nome lista vuoto"
         print(f"Creating list '{text}'")
-        
+
         self.props.title = _("Wastepyper - %s").format(text)
-        
+
         self._listPage.props.title = text
         self._navigationView.push(self._listPage)
-        
+
     def _createRow(self, item):
         if isinstance(item, WastepyperSentinel):
             return Adw.EntryRow()
         else:
             return WastepyperTaskRow(task=item)
-        
+
