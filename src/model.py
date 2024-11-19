@@ -40,11 +40,9 @@ class WastepyperSentinelListModel(GObject.GObject, Gio.ListModel):
                          '',
                          True,
                          GObject.ParamFlags.READWRITE),
-                         
-        "model": (object,
+        "model": (Gio.ListModel,
                   '',
                   '',
-                  # Gio.ListModel.__gtype__,  # lo tolgo, da errore
                   GObject.ParamFlags.READWRITE),
     }
 
