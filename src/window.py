@@ -54,7 +54,7 @@ class WastepyperWindow(Adw.ApplicationWindow):
         text = self._listNameRow.props.text.strip()
         self._createListAction.props.enabled = len(text) > 0
 
-    @Gtk.Template.Callback()    
+    @Gtk.Template.Callback()
     def _activateListNameRow(self, *args):
         self._createListAction.activate()
 
@@ -70,8 +70,14 @@ class WastepyperWindow(Adw.ApplicationWindow):
         self._navigationView.push(self._listPage)
 
     def _createRow(self, item):
-        if isinstance(item, WastepyperSentinel):
-            return Adw.EntryRow()
+        row = None
+        
+        if isinstance(item, WastepyperTask):
+            row = WastepyperTaskRow(task=item)
         else:
-            return WastepyperTaskRow(task=item)
+            row = Adw.EntryRow()
+            
+        assert row != None
+        
+        return row
 
