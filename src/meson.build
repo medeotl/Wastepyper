@@ -31,6 +31,7 @@ wastepyper_sources = [
   'main.py',
   'model.py',
   'task.py',
+  'taskRow.py',
   'window.py',
 ]
 
