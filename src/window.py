@@ -71,13 +71,13 @@ class WastepyperWindow(Adw.ApplicationWindow):
 
     def _createRow(self, item):
         row = None
-        
+
         if isinstance(item, WastepyperTask):
             row = WastepyperTaskRow(task=item)
         else:
             row = Adw.EntryRow()
-            
-        assert row != None
-        
+
+        assert row is not None
+
         return row
 
