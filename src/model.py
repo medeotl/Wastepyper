@@ -100,20 +100,20 @@ class WastepyperSentinelListModel(GObject.GObject, Gio.ListModel):
 
     @model.setter
     def model(self, v):
-        if self._model == v:
+        if hasattr(self, "model") and self._model == v:
             return
 
         nAdded = 0
         nRemoved = 0
 
-        if (self._model):
+        if hasattr(self, "model") and self._model is not None:
             nRemoved = self._model.get_n_items()
             self._model.disconnect(self._itemsChangedId)
             del self._itemsChangedId
 
         self._model = v
 
-        if (self._model):
+        if hasattr(self, "model") and self._model is not None:
             nAdded = self._model.get_n_items()
             self._itemsChangeId = self._model.connect('items-changed',
             lambda _, position, removed, added: 
