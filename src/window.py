@@ -21,7 +21,7 @@ from gi.repository import Gio
 from gi.repository import Gtk
 from gi.repository import Adw
 
-from .model import WastepyperSentinel, WastepyperSentinelListModel
+from .model import WastepyperSentinelListModel
 from .task import WastepyperTask
 from .taskRow import WastepyperTaskRow
 
