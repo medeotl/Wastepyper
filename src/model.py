@@ -51,7 +51,7 @@ class WastepyperSentinelListModel(GObject.GObject, Gio.ListModel):
     def __init__(self, model=None):
         super().__init__()
 
-        self._model = model
+        self.model = model
         self._has_sentinel = True
         self._sentinel = WastepyperSentinel()
 
@@ -59,7 +59,7 @@ class WastepyperSentinelListModel(GObject.GObject, Gio.ListModel):
         return GObject.Object.__gtype__
 
     def do_get_n_items(self):
-        n_items = self._model.props.n_items if hasattr(self, "_model") else 0
+        n_items = self._model.props.n_items if hasattr(self, "model") else 0
         return n_items + 1 if hasattr(self, "_has_sentinel") else n_items
 
     def do_get_item(self, index):
@@ -71,7 +71,7 @@ class WastepyperSentinelListModel(GObject.GObject, Gio.ListModel):
         if index == n_items - 1:
             return self._sentinel
         else:
-            if hasattr(self, "_model"):
+            if hasattr(self, "model"):
                 return self._model.get_item(index)
             else:
                 return None
@@ -82,12 +82,12 @@ class WastepyperSentinelListModel(GObject.GObject, Gio.ListModel):
 
     @has_sentinel.setter
     def has_sentinel(self, v):
-        if self._has_sentinel == v:
+        if hasattr(self, "has-sentinel") and self._has_sentinel == v:
             return
 
         self._has_sentinel = v
 
-        if (self._has_sentinel):
+        if hasattr(self, "has-sentinel") and self._has_sentile:
             self.items_changed(postition=self.do_get_n_items(), removed=0, added=1)
         else:
             self.items_changed(position=self.do_get_n_items(), removed=1, added=0)
