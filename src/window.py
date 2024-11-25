@@ -77,10 +77,18 @@ class WastepyperWindow(Adw.ApplicationWindow):
             row = WastepyperTaskRow(task=item)
         else:
             row = Adw.EntryRow()
+            row.connect("entry-activated", self._on_entry_activate)
 
         assert row is not None
 
         return row
+
+    def _on_entry_activate(self, row):
+        # python non gestisce le lambda multilinea
+        title = row.props.text.strip()
+        if len(title) > 0:
+            self._addTask(title)
+            row.props.text = ""
 
     def _addTask(self, title):
         assert title is not None and len(title) > 0
