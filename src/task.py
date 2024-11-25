@@ -23,10 +23,7 @@ from gi.repository import GObject
 class WastepyperTask(GObject.GObject):
     __gtype_name__ = 'WastepyperTask'
 
-    title = GObject.Property(
-        type=str,
-        flags=GObject.ParamFlags.READWRITE
-    )
+    title = GObject.Property(type=str, flags=GObject.ParamFlags.READWRITE)
 
     def __init__(self, title=""):
         super().__init__()

@@ -116,7 +116,7 @@ class WastepyperSentinelListModel(GObject.GObject, Gio.ListModel):
         if hasattr(self, "model") and self._model is not None:
             nAdded = self._model.get_n_items()
             self._itemsChangeId = self._model.connect('items-changed',
-            lambda _, position, removed, added: 
+            lambda _, position, removed, added:
                 self.items_changed(position, removed, added))
 
         self.notify('model')
