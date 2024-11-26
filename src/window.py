@@ -22,6 +22,7 @@ from gi.repository import Gtk
 from gi.repository import Adw
 
 from .model import WastepyperSentinelListModel
+from .newTaskRow import WastepyperNewTaskRow
 from .task import WastepyperTask
 from .taskRow import WastepyperTaskRow
 
@@ -76,8 +77,10 @@ class WastepyperWindow(Adw.ApplicationWindow):
         if isinstance(item, WastepyperTask):
             row = WastepyperTaskRow(task=item)
         else:
-            row = Adw.EntryRow()
-            row.connect("entry-activated", self._on_entry_activate)
+            row = WastepyperNewTaskRow()
+            row.connect(
+                "task-created", lambda _, task: self._tasksModel.append(task)
+            )
 
         assert row is not None
 
