@@ -1,0 +1,21 @@
+row.new-task {
+  padding: 0;
+}
+
+row.new-task entry {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-bottom-width: 0;
+  padding-left: 12px;
+  padding-right: 12px;
+  min-height: 50px;
+}
+
+row.new-task entry:dir(ltr) {
+  padding-left: 18px;
+}
+
+row.new-task entry:dir(rtl) {
+  padding-right: 18px;
+}
+
