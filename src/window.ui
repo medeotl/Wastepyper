@@ -5,8 +5,8 @@
   <template class="WastepyperWindow" parent="AdwApplicationWindow">
     <property name="width-request">280</property>
     <property name="height-request">320</property>
-    <property name="default-height">420</property>
-    <property name="default-width">380</property>
+    <property name="default-height">500</property>
+    <property name="default-width">400</property>
 
     <property name="content">
       <object class="AdwNavigationView" id="navigationView">
@@ -32,52 +32,55 @@
                 <property name="content">
                   <object class="GtkWindowHandle">
 
-                    <child>
-                      <object class="AdwClamp">
-                        <property name="maximum-size">320</property>
+                      <child>
+                        <object class="AdwStatusPage">
+                          <property name="title" translatable="yes">Create List</property>
+                          <property name="icon-name">com.github.medeotl.Wastepyper</property>
 
-                        <child>
-                          <object class="GtkBox">
-                            <property name="orientation">vertical</property>
-                            <style>
-                              <class name="new-list-box" />
-                            </style>
+                          <child>
+                            <object class="GtkPicture">
+                              <property name="paintable">resource:///com/github/medeotl/Wastepyper/assets/new-list.svg</property>
+                            </object>
+                          </child>
 
-                            <child>
-                              <object class="GtkPicture">
-                                <property name="paintable">resource:///com/github/medeotl/Wastepyper/assets/new-list.svg</property>
-                              </object>
-                            </child>
+                          <child>
+                            <object class="AdwClamp">
+                              <property name="maximum-size">400</property>
+                              <property name="tightening-threshold">300</property>
 
-                            <child>
-                              <object class="AdwPreferencesGroup">
-                                <child>
-                                  <object class="AdwEntryRow" id="listNameRow">
-                                    <property name="title" translatable="yes">List Name</property>
-                                    <signal name="notify::text" handler="_validateListName" object="WastepyperWindow" swapped="no" />
-                                    <signal name="entry-activated" handler="_activateListNameRow" object="WastepyperWindow" swapped="no" />
-                                  </object>
-                                </child>
+                              <child>
+                                <object class="AdwPreferencesGroup">
+                                  <child>
+                                    <object class="AdwEntryRow" id="listNameRow">
+                                      <property name="title" translatable="yes">List Name</property>
+                                      <signal name="notify::text" handler="_validateListName" object="WastepyperWindow" swapped="no" />
+                                      <signal name="entry-activated" handler="_activateListNameRow" object="WastepyperWindow" swapped="no" />"
+                                    </object>
+                                  </child>
 
-                                <child>
-                                  <object class="GtkButton" id="createListButton">
-                                    <property name="margin-top">24</property>
-                                    <property name="label" translatable="yes">Create</property>
-                                    <property name="action-name">win.create-list</property>
-                                    <style>
-                                      <class name="pill" />
-                                      <class name="suggested-action" />
-                                    </style>
-                                  </object>
-                                </child>
-                              </object>
-                            </child>
+                                  <child>
+                                    <object class="GtkButton" id="createListButton">
+                                      <property name="margin-top">24</property>
+                                      <property name="label" translatable="yes">Create</property>
+                                      <property name="action-name">win.create-list</property>
+                                      <property name="halign">center</property>
+                                      <property name="width-request">150</property>
+                                      <style>
+                                        <class name="pill" />
+                                        <class name="suggested-action" />
+                                      </style>
+                                    </object>
+                                  </child>
 
-                          </object>
-                        </child>
+                                </object>
+                              </child>
 
-                      </object>
-                    </child>
+                            </object>
+                          </child>
+
+                        </object>
+                      </child>
+
 
                   </object>
 

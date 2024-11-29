@@ -1,6 +1,7 @@
-@define-color accent_color @yellow_4;
-@define-color accent_bg_color @yellow_5;
-@define-color card_bg_color mix(white, @yellow_1, 0.04);
+@define-color accent_color @brown_3;
+@define-color accent_bg_color @brown_4;
+@define-color card_bg_color alpha( mix(white, @brown_2, 0.2), 0.6);
+@define-color popover_bg_color mix(white, @brown_2, 0.2);
 
 window {
   background: image(alpha(white, 0.25)),
@@ -26,9 +27,4 @@ row.new-task entry:dir(ltr) {
 
 row.new-task entry:dir(rtl) {
   padding-right: 18px;
-}
-
-box.new-list-box{
-  border-spacing: 32px;
-  padding: 36px 12px;
 }

@@ -44,6 +44,7 @@ class WastepyperApplication(Adw.Application):
                                       developer_name='medeo',
                                       version='0.1.0',
                                       developers=['medeo'],
+                                      artists=['Brage Fuglseth https://bragefuglseth.dev'],
                                       copyright='© 2024 medeo')
         # Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
         aboutWindow.set_translator_credits(_('translator-credits'))
@@ -51,7 +52,7 @@ class WastepyperApplication(Adw.Application):
 
     def do_startup(self, *args):
         Adw.Application.do_startup(self)
-        
+
         styleManager = Adw.StyleManager.get_default()
         styleManager.props.color_scheme = Adw.ColorScheme.FORCE_LIGHT 
 
