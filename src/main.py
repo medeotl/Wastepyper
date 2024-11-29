@@ -49,6 +49,12 @@ class WastepyperApplication(Adw.Application):
         aboutWindow.set_translator_credits(_('translator-credits'))
         aboutWindow.present()
 
+    def do_startup(self, *args):
+        Adw.Application.do_startup(self)
+        
+        styleManager = Adw.StyleManager.get_default()
+        styleManager.props.color_scheme = Adw.ColorScheme.FORCE_LIGHT 
+
     def do_activate(self, *args):
         window = WastepyperWindow(application=self)
         window.present()
