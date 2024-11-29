@@ -9,6 +9,7 @@
   </gresource>
 
   <gresource prefix="/com/github/medeotl/Wastepyper">
+    <file>assets/new-list.svg</file>
     <file>assets/paper-light.png</file>
   </gresource>
 </gresources>

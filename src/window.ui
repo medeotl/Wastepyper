@@ -5,9 +5,9 @@
   <template class="WastepyperWindow" parent="AdwApplicationWindow">
     <property name="width-request">280</property>
     <property name="height-request">320</property>
-    <property name="default-height">400</property>
-    <property name="default-width">400</property>
-    
+    <property name="default-height">420</property>
+    <property name="default-width">380</property>
+
     <property name="content">
       <object class="AdwNavigationView" id="navigationView">
 
@@ -31,13 +31,24 @@
                 </child>
                 <property name="content">
                   <object class="GtkWindowHandle">
-                    <child>
 
+                    <child>
                       <object class="AdwClamp">
                         <property name="maximum-size">320</property>
+
                         <child>
-                          <object class="AdwStatusPage">
-                            <property name="title" translatable="yes">New List</property>
+                          <object class="GtkBox">
+                            <property name="orientation">vertical</property>
+                            <style>
+                              <class name="new-list-box" />
+                            </style>
+
+                            <child>
+                              <object class="GtkPicture">
+                                <property name="paintable">resource:///com/github/medeotl/Wastepyper/assets/new-list.svg</property>
+                              </object>
+                            </child>
+
                             <child>
                               <object class="AdwPreferencesGroup">
                                 <child>
@@ -61,11 +72,13 @@
                                 </child>
                               </object>
                             </child>
+
                           </object>
                         </child>
-                      </object>
 
+                      </object>
                     </child>
+
                   </object>
 
                 </property>

@@ -28,3 +28,7 @@ row.new-task entry:dir(rtl) {
   padding-right: 18px;
 }
 
+box.new-list-box{
+  border-spacing: 32px;
+  padding: 36px 12px;
+}
