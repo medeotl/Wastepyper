@@ -13,12 +13,20 @@ row.new-task {
 }
 
 row.new-task entry {
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  border-bottom-width: 0;
+  border-width: 0;
   padding-left: 12px;
   padding-right: 12px;
   min-height: 50px;
+}
+
+row.new-task:first-child entry {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+row.new-task:last-child entry {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 row.new-task entry:dir(ltr) {
