@@ -38,17 +38,18 @@ class WastepyperApplication(Adw.Application):
         # self.create_action('preferences', self.on_preferences_action)
 
     def on_about_action(self, *args):
-        aboutWindow = Adw.AboutWindow(transient_for=self.props.active_window,
-                                      application_name='Wastepyper',
-                                      application_icon='com.github.medeotl.Wastepyper',
-                                      developer_name='medeo',
-                                      version='0.1.0',
-                                      developers=['medeo'],
-                                      artists=['Brage Fuglseth https://bragefuglseth.dev'],
-                                      copyright='© 2024 medeo')
+        aboutDialog = Adw.AboutDialog(
+            application_name='Wastepyper',
+            application_icon='com.github.medeotl.Wastepyper',
+            developer_name='medeo',
+            version='0.1.0',
+            developers=['medeo'],
+            artists=['Brage Fuglseth https://bragefuglseth.dev'],
+            copyright='© 2024 medeo'    
+        )
         # Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
-        aboutWindow.set_translator_credits(_('translator-credits'))
-        aboutWindow.present()
+        aboutDialog.set_translator_credits(_('translator-credits'))
+        aboutDialog.present(self.props.active_window)
 
     def do_startup(self, *args):
         Adw.Application.do_startup(self)
