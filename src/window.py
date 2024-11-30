@@ -45,9 +45,7 @@ class WastepyperWindow(Adw.ApplicationWindow):
         self._validateListName()
 
         self._tasksModel = Gio.ListStore(item_type=WastepyperTask)
-        for foo in ['Task 1', 'Task 2', 'Task 3']:
-            self._addTask(foo)
-
+        
         self._model = WastepyperSentinelListModel(model=self._tasksModel)
         self._listbox.bind_model(self._model, lambda item: self._createRow(item))
 
