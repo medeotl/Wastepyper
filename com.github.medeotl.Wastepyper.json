@@ -29,8 +29,8 @@
             "buildsystem" : "meson",
             "sources" : [
                 {
-                    "type" : "git",
-                    "url" : "file:///run/user/1000/doc/3c04f617/tmp"
+                    "type" : "dir",
+                    "url" : ".."
                 }
             ]
         }
