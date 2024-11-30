@@ -5,6 +5,6 @@ Icon=com.github.medeotl.Wastepyper
 Terminal=false
 Type=Application
 Categories=Utility;
-Keywords=GTK;
+Keywords=Gnome;GTK;Utility;Note;Todo;
 StartupNotify=true
 DBusActivatable=true
