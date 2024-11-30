@@ -26,10 +26,11 @@
     </p>
   </description>
 
-    <metadata_license>CC0-1.0</metadata_license>
-    <project_license>GPL-3.0-or-later</project_license>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
   <url type="homepage">https://github.com/medeotl/Wastepyper</url>
   <url type="vcs-browser">https://github.com/medeotl/Wastepyper</url>
   <url type="bugtracker">https://github.com/medeotl/Wastepyper/issues</url>
   <url type="donation">https://ko-fi.com/feaneron</url>
+  <launchable type="desktop-id">com.github.medeotl.Wastepaper.desktop</launchable>
 </component>
