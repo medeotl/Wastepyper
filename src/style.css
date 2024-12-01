@@ -1,11 +1,14 @@
-@define-color accent_color @brown_3;
-@define-color accent_bg_color @brown_4;
-@define-color card_bg_color alpha( mix(white, @brown_2, 0.2), 0.6);
-@define-color popover_bg_color mix(white, @brown_2, 0.2);
-
 window {
-  background: image(alpha(white, 0.25)),
+  --accent-color: var(--brown-3);
+  --accent-bg-color: var(--brown-4);
+  
+  background: image(rgb(255 255 255 / 25%)),
               center url("resource:///com/github/medeotl/Wastepyper/assets/paper-light.png");
+}
+
+list.accent {
+  --card-bg-color: color-mix(in srgb, transparent, color-mix(in srgb, white, var(--brown-2) 15%) 80%);
+  --popover-bg-color: color-mix(in srgb, white, var(--brown-2) 20%);
 }
 
 row.new-task {
