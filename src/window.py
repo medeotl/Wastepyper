@@ -32,41 +32,14 @@ class WastepyperWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'WastepyperWindow'
 
     _listbox = Gtk.Template.Child(name="listbox")
-    _listNameRow = Gtk.Template.Child(name="listNameRow")
-    _listPage = Gtk.Template.Child(name="listPage")
-    _navigationView = Gtk.Template.Child(name="navigationView")
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        # action per creare una nuova lista (attivata dal pulsante apposito)
-        self._createListAction = Gio.SimpleAction.new(name="create-list")
-        self._createListAction.connect("activate", self._createList)
-        self.add_action(self._createListAction)
-        self._validateListName()
 
         self._tasksModel = Gio.ListStore(item_type=WastepyperTask)
 
         self._model = WastepyperSentinelListModel(model=self._tasksModel)
         self._listbox.bind_model(self._model, lambda item: self._createRow(item))
-
-    @Gtk.Template.Callback()
-    def _validateListName(self, *args):
-        text = self._listNameRow.props.text.strip()
-        self._createListAction.props.enabled = len(text) > 0
-
-    @Gtk.Template.Callback()
-    def _activateListNameRow(self, *args):
-        self._createListAction.activate()
-
-    def _createList(self, *args):
-        text = self._listNameRow.props.text.strip()
-
-        assert text and len(text) > 0, "nome lista vuoto"
-
-        self.props.title = _("Wastepyper - %s").format(text)
-
-        self._listPage.props.title = text
-        self._navigationView.push(self._listPage)
 
     def _createRow(self, item):
         row = None
