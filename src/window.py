@@ -45,7 +45,7 @@ class WastepyperWindow(Adw.ApplicationWindow):
         self._validateListName()
 
         self._tasksModel = Gio.ListStore(item_type=WastepyperTask)
-        
+
         self._model = WastepyperSentinelListModel(model=self._tasksModel)
         self._listbox.bind_model(self._model, lambda item: self._createRow(item))
 
@@ -62,7 +62,6 @@ class WastepyperWindow(Adw.ApplicationWindow):
         text = self._listNameRow.props.text.strip()
 
         assert text and len(text) > 0, "nome lista vuoto"
-        print(f"Creating list '{text}'")
 
         self.props.title = _("Wastepyper - %s").format(text)
 
