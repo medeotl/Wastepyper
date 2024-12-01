@@ -16,6 +16,7 @@
             <property name="primary-icon-name">list-add-symbolic</property>
             <property name="placeholder-text" translatable="yes">Add new task…</property>
             <signal name="activate" handler="_onEntryActivatedCb" object="WastepyperNewTaskRow" swapped="no" />
+            <signal name="icon-release" handler="_onEntryActivatedCb" object="WastepyperNewTaskRow" swapped="no" />
             <style>
               <class name="flat" />
             </style>

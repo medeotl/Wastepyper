@@ -20,6 +20,7 @@ row.new-task entry {
   padding-left: 12px;
   padding-right: 12px;
   min-height: 50px;
+  background: none;
 }
 
 row.new-task:first-child entry {

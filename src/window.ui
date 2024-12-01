@@ -3,10 +3,11 @@
   <requires lib="gtk" version="4.0"/>
   <requires lib="Adw" version="1.0"/>
   <template class="WastepyperWindow" parent="AdwApplicationWindow">
-    <property name="width-request">280</property>
-    <property name="height-request">320</property>
+    <property name="width-request">360</property>
+    <property name="height-request">294</property>
     <property name="default-height">500</property>
     <property name="default-width">400</property>
+    <property name="title">Wastepyper</property>
 
     <property name="content">
 
@@ -14,11 +15,6 @@
 
         <child type="top">
           <object class="AdwHeaderBar">
-            <property name="title-widget">
-              <object class="AdwWindowTitle">
-                <property name="title" translatable="yes">Tasks</property>
-              </object>
-            </property>
             <child type="start">
               <object class="GtkButton">
                 <property name="icon-name">help-about-symbolic</property>

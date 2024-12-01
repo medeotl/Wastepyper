@@ -39,7 +39,7 @@ class WastepyperNewTaskRow(Adw.PreferencesRow):
     _titleEntry = Gtk.Template.Child(name="titleEntry")
 
     @Gtk.Template.Callback()
-    def _onEntryActivatedCb(self, _):
+    def _onEntryActivatedCb(self, *args):
         title = self._titleEntry.props.text.strip()
         if len(title) > 0:
             self.emit('task-created', WastepyperTask(title=title))
